@@ -180,8 +180,6 @@ Zed 拥有一流的多分屏引擎，无需使用鼠标即可进行灵活排版�
 
 ## 8. 智能 AI 编程与自动补全
 
-Zed 的深度特色在于将 AI 编程能力集成到了编辑器的核心部分。
-
 | 功能描述 | Vim 模式快捷键 (Insert) | 默认 Windows 快捷键 | 绑定 Action |
 | :--- | :--- | :--- | :--- |
 | **唤醒行内 AI 助手** (Inline AI) | `Ctrl-x Ctrl-a` | `Ctrl-i` (可在终端唤醒!) | [assistant::InlineAssist](file:///C:/Users/hengvvang/Desktop/zed/crates/assistant) |
@@ -247,9 +245,8 @@ Zed 支持交互式调试 (Debug Adapter Protocol)。通过下方按键，开发
 
 ---
 
-## 12. 高级代码折叠 (Code Folding)
+## 代码折叠 (Code Folding)
 
-针对阅读长函数和大型逻辑块，代码折叠能够极大保持脑图的清爽。
 
 | 折叠层级或动作 | Vim 模式快捷键 | 默认 Windows 快捷键 | 绑定 Action |
 | :--- | :--- | :--- | :--- |

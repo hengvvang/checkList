@@ -1,6 +1,7 @@
 # quick input
+
 ## ptf
-> 'ptf' --> panel toggle focus
+> 'ptf' -->  xxx panel: toggle focus
 
 - pptf 
   - project
@@ -23,9 +24,11 @@
 ## windows
 
 ### new pane
-
 ctrl + w  v
 ctrl + w  s
+
+### close pane
+ctrl + w q close 
 
 ### focus pane
 ctrl + w  h
@@ -39,9 +42,7 @@ ctrl + w  J
 ctrl + w  K
 ctrl + w  L
 
-
-### other
-ctrl + w q close 
+### open in explorer
 ctrl + k r explorer
 
 ### code fold
@@ -54,13 +55,19 @@ ctrl + k ctrl + 0
 ctrl + k ctrl + j
 
 ### search 
+/
+?
 space /
+
+#### next
+n 
+N
 
 ### theme 
 ctrl + k ctrl + t
 ctrl + k ctrl + shift + t
 
-
+### keybinds
 ctrl + k ctrl + s
 
 ### switch tab
@@ -68,24 +75,37 @@ alt + 1~9
 
 
 ### coding
-
 ctrl + g
 
-  ### 三、 代码重构与编辑 (Refactoring & Code
-  Actions)
+## 代码折叠 (Code Folding)
 
-  •  g .  或  g r a : 触发代码动作 (Code Actions) /
-  快速修复 (Quick Fix)，非常适合修复 Rust
-  编译报错！
-  •  g h  或  shift-k : 查看悬浮文档提示 (Hover,
-  editor)
-  •  g B : 查看当前行的 Git Blame 悬浮历史提交信息
-  ( editor::BlameHover )
-  •  g r n  或  c d : 重命名当前光标处的变量/符号
-  (Rename)
-  •  g c : 切换单行或选中行的注释 (normal.rs)
-  •  g b : 切换块注释 (
-  vim::PushToggleBlockComments )
+| 折叠层级或动作 | Vim 模式快捷键 | 默认 Windows 快捷键 | 绑定 Action |
+| :--- | :--- | :--- | :--- |
+| **折叠当前光标所在代码块** | `z c` | `Ctrl-Shift-[` | `editor::Fold` |
+| **展开当前光标所在代码块** | `z o` | `Ctrl-Shift-]` | `editor::UnfoldLines` |
+| **一键折叠/展开当前光标所在块** | `z a` | `Ctrl-k Ctrl-l` | `editor::ToggleFold` |
+| **递归折叠当前块的所有子块** | `z Shift-c` | `Ctrl-k Ctrl-[` | `editor::FoldRecursive` |
+| **递归展开当前块的所有子块** | `z Shift-o` | `Ctrl-k Ctrl-]` | `editor::UnfoldRecursive` |
+| **折叠第 1~9 层缩进代码块** | 无 | `Ctrl-k Ctrl-1` ~ `9` | `editor::FoldAtLevel_1` ~ `9` |
+| **全部折叠** | `z Shift-m` | `Ctrl-k Ctrl-0` | `editor::FoldAll` |
+| **全部展开** | `z Shift-r` | `Ctrl-k Ctrl-j` | `editor::UnfoldAll` 
+
+
+### 三、 代码重构与编辑 (Refactoring & Code
+Actions)
+
+•  g .  或  g r a : 触发代码动作 (Code Actions) /
+快速修复 (Quick Fix)，非常适合修复 Rust
+编译报错！
+•  g h  或  shift-k : 查看悬浮文档提示 (Hover,
+editor)
+•  g B : 查看当前行的 Git Blame 悬浮历史提交信息
+( editor::BlameHover )
+•  g r n  或  c d : 重命名当前光标处的变量/符号
+(Rename)
+•  g c : 切换单行或选中行的注释 (normal.rs)
+•  g b : 切换块注释 (
+vim::PushToggleBlockComments )
   
   ### 四、 Vim 环绕字符与文本对象 (Surround & Text
   Objects)
@@ -385,23 +405,24 @@ ctrl + g
       Ctrl-x Ctrl-l  │  editor::ToggleCodeActions │ 在插入模式下快速展开 Code
                      │				│ Actions 菜单
     ──────
-    ### 8. 项目面板文件树快捷键 (Project Panel - netrw 兼容模式)
-  
-    当光标在左侧文件面板 (Project Panel) 中时，Zed 允许使用经典的 netrw/Vim
-    风格键位。
-  
-     快捷键    │ 绑定 Action                     │ 详细说明
-    ───────────┼─────────────────────────────────┼──────────────────────────────────
-      %        │  project_panel::NewFile         │ 在当前目录下新建文件
-      d        │  project_panel::NewDirectory    │ 在当前目录下新建文件夹
-      h  /  l  │  CollapseSelectedEntry  /       │ 折叠/展开选中的文件夹目录
-               │ ExpandSelectedEntry             │
-      v        │  project_panel::OpenSplitVertica│ 将选中文件在垂直分屏中打开
-               │ l                               │
-      o        │  project_panel::OpenSplitHorizon│ 将选中文件在水平分屏中打开
-               │ tal                             │
-      shift-d  │  project_panel::Delete          │ 删除选中的文件/文件夹
-      shift-r  │  project_panel::Rename          │ 对选中的文件/文件夹进行重命名
-      x        │  project_panel::RevealInFileMana│ 在系统资源管理器（Windows 的
-               │ ger                             │ File Explorer）中显示选中的文件
-      escape   │  vim::ToggleProjectPanelFocus   │ 移开焦点，将光标放回主编辑器中
+### 8. 项目面板文件树快捷键 (Project Panel - netrw 兼容模式)
+
+> 当光标在左侧文件面板 (Project Panel) 中时，Zed 允许使用经典的 netrw/Vim
+风格键位。
+
+| 快捷键 | 绑定 Action | 详细说明 |
+|---|---|---|
+| `%` | `project_panel::NewFile` | 在当前目录下新建文件 |
+| `d` | `project_panel::NewDirectory` | 在当前目录下新建文件夹 |
+| `h` / `l` | `project_panel::CollapseSelectedEntry` / `project_panel::ExpandSelectedEntry` | 折叠/展开选中的文件夹目录 |
+| `v` | `project_panel::OpenSplitVertical` | 将选中文件在垂直分屏中打开 |
+| `o` | `project_panel::OpenSplitHorizontal` | 将选中文件在水平分屏中打开 |
+| `shift-d` | `project_panel::Delete` | 删除选中的文件/文件夹 |
+| `shift-r` | `project_panel::Rename` | 对选中的文件/文件夹进行重命名 |
+| `x` | `project_panel::RevealInFileManager` | 在系统资源管理器（Windows 的 File Explorer）中显示选中的文件 |
+| `escape` | `vim::ToggleProjectPanelFocus` | 移开焦点，将光标放回主编辑器中 |
+
+
+### g xx
+g s
+g S       //整个项目

@@ -1,12 +1,6 @@
 # Vim mode：其它上下文
 
-包含未归入前面 Vim 模块的剩余上下文，仍然全部来自 `assets/keymaps/vim.json`。
-
-
 ## `showing_completions`
-
-- 源文件：`assets/keymaps/vim.json`
-- Section：`8`
 
 | 功能说明 | 快捷键 / key sequence | Action / 参数 |
 |---|---|---|
@@ -17,9 +11,6 @@
 
 ## `vim_mode == operator`
 
-- 源文件：`assets/keymaps/vim.json`
-- Section：`18`
-
 | 功能说明 | 快捷键 / key sequence | Action / 参数 |
 |---|---|---|
 | Vim：执行 Clear Operators | `ctrl-c` | `vim::ClearOperators` |
@@ -29,18 +20,12 @@
 
 ## `BufferSearchBar && !in_replace`
 
-- 源文件：`assets/keymaps/vim.json`
-- Section：`41`
-
 | 功能说明 | 快捷键 / key sequence | Action / 参数 |
 |---|---|---|
 | Vim：执行 Search Submit | `enter` | `vim::SearchSubmit` |
 | 关闭当前文件搜索 | `escape` | `buffer_search::Dismiss` |
 
 ## `OutlinePanel && not_editing`
-
-- 源文件：`assets/keymaps/vim.json`
-- Section：`45`
 
 | 功能说明 | 快捷键 / key sequence | Action / 参数 |
 |---|---|---|
@@ -73,17 +58,11 @@
 
 ## `OutlinePanel && editing`
 
-- 源文件：`assets/keymaps/vim.json`
-- Section：`46`
-
 | 功能说明 | 快捷键 / key sequence | Action / 参数 |
 |---|---|---|
 | 取消菜单/关闭当前弹出层 | `enter` | `menu::Cancel` |
 
 ## `GitGraph`
-
-- 源文件：`assets/keymaps/vim.json`
-- Section：`47`
 
 | 功能说明 | 快捷键 / key sequence | Action / 参数 |
 |---|---|---|
@@ -91,9 +70,6 @@
 | git graph：聚焦Previous Tab Stop | `shift-tab` | `git_graph::FocusPreviousTabStop` |
 
 ## `GitGraphSearchBar > Editor`
-
-- 源文件：`assets/keymaps/vim.json`
-- Section：`48`
 
 | 功能说明 | 快捷键 / key sequence | Action / 参数 |
 |---|---|---|
@@ -165,9 +141,6 @@
 
 ## `SettingsWindow > NavigationMenu && !search`
 
-- 源文件：`assets/keymaps/vim.json`
-- Section：`56`
-
 | 功能说明 | 快捷键 / key sequence | Action / 参数 |
 |---|---|---|
 | settings editor：展开Nav Entry | `l` | `settings_editor::ExpandNavEntry` |
@@ -178,9 +151,6 @@
 | settings editor：聚焦Last Nav Entry | `shift-g` | `settings_editor::FocusLastNavEntry` |
 
 ## `MarkdownPreview`
-
-- 源文件：`assets/keymaps/vim.json`
-- Section：`57`
 
 | 功能说明 | 快捷键 / key sequence | Action / 参数 |
 |---|---|---|
@@ -206,9 +176,6 @@
 
 ## `NotebookEditor && notebook_mode == command`
 
-- 源文件：`assets/keymaps/vim.json`
-- Section：`60`
-
 | 功能说明 | 快捷键 / key sequence | Action / 参数 |
 |---|---|---|
 | 选择菜单/列表中的下一项 | `j` | `menu::SelectNext` |
@@ -220,4 +187,3 @@
 | notebook：执行 Enter Edit Mode | `enter` | `notebook::EnterEditMode` |
 | notebook：运行And Advance | `shift-enter` | `notebook::RunAndAdvance` |
 | notebook：运行操作 | `ctrl-enter` | `notebook::Run` |
-
