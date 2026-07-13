@@ -354,61 +354,50 @@ vim::PushToggleBlockComments )
       c s <old_char>          │  vim::PushChangeSurrounds│ 修改指定的环绕字符为新字
      <new_char>               │                          │ 符
   
-    #### B. 进阶文本对象 (Text Objects)
+#### B. 进阶文本对象 (Text Objects)
   
-    搭配  c  (Change),  d  (Delete),  y  (Yank),  v  (Visual)
-    等算子使用，可操作极具编程语言语义的范围。
+搭配  c  (Change),  d  (Delete),  y  (Yank),  v  (Visual)
+等算子使用，可操作极具编程语言语义的范围。
+    
+| 文本对象键 | 对应操作范围 | 说明 |
+| :---: | :--- | :--- |
+| `a` | 参数 (Argument) | 代表函数定义或调用中的某个参数（含逗号） |
+| `f` | 方法/函数 (Method/Function) | 代表整个函数的代码块范围 |
+| `c` | 类/结构体 (Class/Struct) | 代表整个类/结构体的代码块范围 |
+| `e` | 整个文件 (Entire File) | 代表当前文件的全部内容 |
+| `q` | 任意引号 (Quotes) | 智能识别最近的单引号、双引号或反引号并将其作为范围 |
   
-     文本对象键 │ 对应操作范围                │ 说明
-    ────────────┼─────────────────────────────┼─────────────────────────────────────
-      a         │ 参数 (Argument)             │ 代表函数定义或调用中的某个参数（含
-                │                             │ 逗号）
-      f         │ 方法/函数 (Method/Function) │ 代表整个函数的代码块范围
-      c         │ 类/结构体 (Class/Struct)    │ 代表整个类/结构体的代码块范围
-      e         │ 整个文件 (Entire File)      │ 代表当前文件的全部内容
-      q         │ 任意引号 (Quotes)           │ 智能识别最近的单/双/反引号并作为范
-                │                             │ 围
-  
-    #### 💡 实际使用示例 (以 Rust 代码为例)
-  
-      // 初始代码状态
-      let value = format_name(first_name, last_name);
-  
-    1. 替换函数参数：光标移动到  first_name  上，按下  c i a  (Change Inner
-    Argument)。
-        • 结果： first_name  被删除且进入插入模式：
-         let value = format_name(|, last_name);
-    2. 给参数加双引号：退出到 Normal 模式，光标在  last_name  上，按下  y s i a "
-    (Yank Surround Inner Argument with  " ).
-        • 结果：
-         let value = format_name(first_name, "last_name");
-    3. 更改单双引号：光标在  last_name  内，按下  c s " '  (Change Surround  "  to
-    ' ).
-        • 结果：
-         let value = format_name(first_name, 'last_name');
-    4. 删除外围引号：按下  d s '  (Delete Surround  ' ).
-        • 结果：回到无引号状态。
-  
-    ──────
-    ### 7. 插入模式下 Zed 智能快捷键 (Insert 模式)
-  
-    在插入模式下，Zed 提供了专属的 AI 生成和编辑提示操作。
-  
-     快捷键          │ 绑定 Action		│ 详细说明
-    ─────────────────┼────────────────────────────┼─────────────────────────────────
-      Ctrl-x Ctrl-a  │ assistant             │ 唤起 Inline AI
-                     │				│ 助手输入框，输入自然语言即可在
-                     │				│ 光标处生成/重写代码
-      Ctrl-x Ctrl-c  │  editor::ShowEditPrediction│ 显示当前位置的 AI 内联编辑预测
-                     │  				│ (AI Edit Prediction)
-      Ctrl-x Ctrl-o  │  editor::ShowCompletions   │ 强制展开 LSP 的补全下拉菜单
-      Ctrl-x Ctrl-l  │  editor::ToggleCodeActions │ 在插入模式下快速展开 Code
-                     │				│ Actions 菜单
-    ──────
-### 8. 项目面板文件树快捷键 (Project Panel - netrw 兼容模式)
+#### 💡 实际使用示例 (以 Rust 代码为例)
 
-> 当光标在左侧文件面板 (Project Panel) 中时，Zed 允许使用经典的 netrw/Vim
-风格键位。
+  // 初始代码状态
+  let value = format_name(first_name, last_name);
+
+1. 替换函数参数：光标移动到  first_name  上，按下  c i a  (Change Inner
+Argument)。
+    • 结果： first_name  被删除且进入插入模式：
+      let value = format_name(|, last_name);
+2. 给参数加双引号：退出到 Normal 模式，光标在  last_name  上，按下  y s i a "
+(Yank Surround Inner Argument with  " ).
+    • 结果：
+      let value = format_name(first_name, "last_name");
+3. 更改单双引号：光标在  last_name  内，按下  c s " '  (Change Surround  "  to
+' ).
+    • 结果：
+      let value = format_name(first_name, 'last_name');
+4. 删除外围引号：按下  d s '  (Delete Surround  ' ).
+    • 结果：回到无引号状态。
+
+
+### 7. 插入模式下 Zed 智能快捷键 (Insert 模式)
+
+| 快捷键 | 绑定 Action | 详细说明 |
+|---|---|---|
+| `Ctrl-x Ctrl-a` | `assistant` | 唤起 Inline AI 助手输入框，输入自然语言即可在光标处生成/重写代码 |
+| `Ctrl-x Ctrl-c` | `editor::ShowEditPrediction` | 显示当前位置的 AI 内联编辑预测 (AI Edit Prediction) |
+| `Ctrl-x Ctrl-o` | `editor::ShowCompletions` | 强制展开 LSP 的补全下拉菜单 |
+| `Ctrl-x Ctrl-l` | `editor::ToggleCodeActions` | 在插入模式下快速展开 Code Actions 菜单 |
+    
+### 8. 项目面板文件树快捷键 (Project Panel - netrw 兼容模式)
 
 | 快捷键 | 绑定 Action | 详细说明 |
 |---|---|---|

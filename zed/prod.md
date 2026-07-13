@@ -1,28 +1,6 @@
 # Zed 快捷键与高产指南 (Vim & 默认快捷键)
 
-本指南旨在详细介绍 Zed 编辑器中的所有常用 Vim 模拟模式快捷键、默认 Windows 快捷键，以及面向开发和生产力的核心指令。所有数据均直接核对自 Zed 官方源码 [vim.json](file:///C:/Users/hengvvang/Desktop/zed/assets/keymaps/vim.json) 和 [default-windows.json](file:///C:/Users/hengvvang/Desktop/zed/assets/keymaps/default-windows.json) 进行核对，确保准确无误。
-
 ---
-
-## 目录
-1. [配置与启用](#配置与启用)
-2. [工作空间面板与 Dock 控制](#1-工作空间面板与-dock-控制)
-3. [文件导航与搜索面板](#2-文件导航与搜索面板)
-4. [LSP 代码导航与跳转](#3-lsp-代码导航与跳转)
-5. [编译诊断与 Git Hunk 差异操作](#4-编译诊断与-git-hunk-差异操作)
-6. [高级代码编辑与多光标操作](#5-高级代码编辑与多光标操作)
-7. [分屏窗口与标签页布局](#6-分屏窗口与标签页布局)
-8. [Vim 环绕字符与语义文本对象](#7-vim-环绕字符与语义文本对象)
-9. [智能 AI 编程与自动补全](#8-智能-ai-编程与自动补全)
-10. [任务管理器与外部终端](#9-任务管理器与外部终端)
-11. [项目侧边栏 Netrw 兼容模式](#10-项目侧边栏-netrw-兼容模式)
-12. [DAP 交互式调试器快捷键](#11-dap-交互式调试器快捷键)
-13. [高级代码折叠 (Code Folding)](#12-高级代码折叠-code-folding)
-14. [Helix 模拟模式 (Helix Mode)](#13-helix-模拟模式-helix-mode)
-15. [核心生产力实战场景示例](#核心生产力实战场景示例)
-
----
-
 ## 配置与启用
 
 在 Zed 中，您可以在全局用户设置（`settings.json`）中自由切换 **Vim 模式** 和 **默认模式**：
