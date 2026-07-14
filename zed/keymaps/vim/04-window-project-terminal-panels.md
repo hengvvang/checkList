@@ -5,9 +5,6 @@
 
 ## `(vim_mode == helix_normal || vim_mode == helix_select) && !menu`
 
-- 源文件：`assets/keymaps/vim.json`
-- Section：`12`
-
 | 功能说明 | 快捷键 / key sequence | Action / 参数 |
 |---|---|---|
 | Vim：向左移动，必要时换到上一行 | `h` | `vim::WrappingLeft` |
@@ -310,4 +307,3 @@
 |---|---|---|
 | skill creator：聚焦Next Field | `tab` | `skill_creator::FocusNextField` |
 | skill creator：聚焦Previous Field | `shift-tab` | `skill_creator::FocusPreviousField` |
-

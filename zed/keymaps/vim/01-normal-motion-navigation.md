@@ -8,49 +8,37 @@
 |---|---|---|
 | Vim：选择/指定文本对象 | `i` | `vim::PushObject`; 参数 `[{"around":false}]` |
 | Vim：选择/指定文本对象 | `a` | `vim::PushObject`; 参数 `[{"around":true}]` |
-
 | Vim：向左移动 | `left` | `vim::Left` |
 | Vim：向左移动 | `h` | `vim::Left` |
 | Vim：向左移动，必要时换到上一行 | `backspace` | `vim::WrappingLeft` |
-
 | Vim：向下移动 | `down` | `vim::Down` |
 | Vim：向下移动 | `j` | `vim::Down` |
 | Vim：向下移动 | `ctrl-j` | `vim::Down` |
-
 // 减号上一行，加号下一行
 | Vim：移动到上一行行首 | `-` | `vim::PreviousLineStart` |
 | Vim：移动到下一行行首 | `+` | `vim::NextLineStart` |
 | Vim：移动到下一行行首 | `ctrl-m` | `vim::NextLineStart` |
 | Vim：移动到下一行行首 | `enter` | `vim::NextLineStart` |
-
 | Vim：执行 Tab 跳转/补全导航 | `shift-tab` | `vim::Tab` |
 | Vim：执行 Tab 跳转/补全导航 | `tab` | `vim::Tab` |
-
 | Vim：向上移动 | `up` | `vim::Up` |
-
 | Vim：向右移动 | `right` | `vim::Right` |
 | Vim：向右移动 | `l` | `vim::Right` |
 | Vim：向右移动，必要时换到下一行 | `space` | `vim::WrappingRight` |
-
 | Vim：移动到行首第一个非空字符 | `^` | `vim::FirstNonWhitespace` |
 | Vim：移动到行首 | `0` | `vim::StartOfLine` |
 | Vim：移动到行首 | `home` | `vim::StartOfLine` |
-
 | Vim：移动到行尾 | `end` | `vim::EndOfLine` |
 | Vim：移动到行尾 | `$` | `vim::EndOfLine` |
 | Vim：按行移动并到行首 | `_` | `vim::StartOfLineDownward` |
 | Vim：按行移动并到行尾 | `g _` | `vim::EndOfLineDownward` |
 | Vim：移动到文档末尾 | `shift-g` | `vim::EndOfDocument` |
-
 | Vim：移动到段落开头 | `{` | `vim::StartOfParagraph` |
 | Vim：移动到段落结尾 | `}` | `vim::EndOfParagraph` |
-
 | Vim：移动到上一句 | `(` | `vim::SentenceBackward` |
 | Vim：移动到下一句 | `)` | `vim::SentenceForward` |
-
 | Vim：跳转到指定列 | `|` | `vim::GoToColumn` |
 // 22| 跳转到22列
-
 | Vim：移动到下一个单词开头 | `w` | `vim::NextWordStart` |
 | Vim：移动到下一个单词结尾 | `e` | `vim::NextWordEnd` |
 | Vim：移动到上一个单词开头 | `b` | `vim::PreviousWordStart` |
@@ -59,7 +47,6 @@
 | Vim：移动到下一个单词结尾 | `shift-e` | `vim::NextWordEnd`; 参数 `[{"ignore_punctuation":true}]` |
 | Vim：移动到上一个单词开头 | `shift-b` | `vim::PreviousWordStart`; 参数 `[{"ignore_punctuation":true}]` |
 | Vim：移动到上一个单词结尾 | `g shift-e` | `vim::PreviousWordEnd`; 参数 `[{"ignore_punctuation":true}]` |
-
 | Vim：打开搜索 | `/` | `vim::Search` |
 | 在窗格中打开搜索 | `g /` | `pane::DeploySearch` |
 | Vim：打开搜索 | `?` | `vim::Search`; 参数 `[{"backwards":true}]` |
@@ -68,7 +55,6 @@
 | Vim：跳到下一个搜索匹配 | `n` | `vim::MoveToNextMatch` |
 | Vim：跳到上一个搜索匹配 | `shift-n` | `vim::MoveToPreviousMatch` |
 | Vim：跳转到匹配的括号/结构 | `%` | `vim::Matching`; 参数 `[{"match_quotes":true}]` |
-
 // 搜索重复用 * # n N 
 // 字符重复用 ; ,
 | Vim：输入字符并向前查找 | `f` | `vim::PushFindForward`; 参数 `[{"before":false,"multiline":false}]` |
@@ -77,42 +63,30 @@
 | Vim：输入字符并向后查找 | `shift-t` | `vim::PushFindBackward`; 参数 `[{"after":true,"multiline":false}]` |
 | Vim：重复上次字符查找 | `;` | `vim::RepeatFind` |
 | Vim：反向重复上次字符查找 | `,` | `vim::RepeatFindReversed` |
-
 | Vim：设置 mark 标记 | `m` | `vim::PushMark` |
 | Vim：跳转到 mark 标记 | `'` | `vim::PushJump`; 参数 `[{"line":true}]` |
 | Vim：跳转到 mark 标记 | `` ` `` | `vim::PushJump`; 参数 `[{"line":false}]` |
-
 | 导航后退 | `ctrl-o` | `pane::GoBack` |
 | 导航前进 | `ctrl-i` | `pane::GoForward` |
 | 跳转到定义 | `ctrl-]` | `editor::GoToDefinition` |
-
 | 跳转到更早的标签位置 | `ctrl-t` | `pane::GoToOlderTag` |
-
 | Vim：显示当前位置 | `ctrl-g` | `vim::ShowLocation` |
-
 | Vim：切回普通模式 | `escape` | `vim::SwitchToNormalMode` |
 | Vim：切回普通模式 | `ctrl-[` | `vim::SwitchToNormalMode` |
-
 | Vim：切换字符可视模式 | `v` | `vim::ToggleVisual` |
 | Vim：切换行可视模式 | `shift-v` | `vim::ToggleVisualLine` |
 | Vim：切换块可视模式 | `ctrl-v` | `vim::ToggleVisualBlock` |
 | Vim：切换块可视模式 | `ctrl-q` | `vim::ToggleVisualBlock` |
-
 | Vim：切换替换模式 | `shift-r` | `vim::ToggleReplace` |
-
 | 显示悬停信息 | `shift-k` | `editor::Hover` |
-
 | Vim：向下翻页 | `ctrl-f` | `vim::PageDown` |
 | Vim：向下翻页 | `pagedown` | `vim::PageDown` |
 | Vim：向上翻页 | `ctrl-b` | `vim::PageUp` |
 | Vim：向上翻页 | `pageup` | `vim::PageUp` |
-
 | Vim：向下滚动半屏 | `ctrl-d` | `vim::ScrollDown` |
 | Vim：向上滚动半屏 | `ctrl-u` | `vim::ScrollUp` |
-
 | Vim：屏幕向下滚动一行 | `ctrl-e` | `vim::LineDown` |
 | Vim：屏幕向上滚动一行 | `ctrl-y` | `vim::LineUp` |
-
 | Vim：准备使用寄存器内容替换 | `g shift-r` | `vim::PushReplaceWithRegister` |
 | 重命名符号 | `g r n` | `editor::Rename` |
 | 查找所有引用 | `g r r` | `editor::FindAllReferences` |
