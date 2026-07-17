@@ -1,30 +1,41 @@
 # quick input
 
-## ptf
+## panel
+
+ctrl + b   / ctrl + alt + b  
+ctrl + j   / ctrl + alt  + j  
+
+### ptf
 > 'ptf' -->  xxx panel: toggle focus
 
 - project panel
   - pptf
   - E
+  - ctrl + shift + e
 
 - debug panel
   - dptf
   - D
+  - ctrl + shift + d
 
 - terminal panel
   - tptf
   - T
+  - ctrl + `
 
 - git panel
   - gptf
   - G
+  - ctrl + shift + g
 
 - collaboration panel
   - cptf
   - C
+  - ctrl + shift + c
 
 - outline panel
   - optf
+  - ctrl + shfit + b
 
 ## windows
 
@@ -52,21 +63,47 @@ ctrl + w  L    //   `ctrl + w  shift + l`
 ctrl + k r
 
 ### code fold
-ctrl + k ctrl + l
+#### switch code fold status
+- ctrl + k ctrl + l
+- za
 
-ctrl + k ctrl + [
-ctrl + k ctrl + ]
+#### flod
+- ctrl + shift [
+- zc
 
-ctrl + k ctrl + 0
-ctrl + k ctrl + j
+
+// 递归折叠
+- ctrl + k ctrl + [  
+- zC      //    `z + shitf + c`
+
+#### expend
+- ctrl + shift + ]
+- zo
+
+// 递归展开
+- ctrl + k ctrl + ]  
+- zO      //   `z + shift + o`
+
+#### flod all
+- ctrl + k ctrl + 0
+- zM   //    `z + shift + m`
+
+#### expend all
+- ctrl + k ctrl + j
+- zR   //    `z + shift + r `
+
 
 ### search 
+#### 向后搜索
 /
+g /
+#### 向前搜索
 ?
-space /
 
-#### next
+#### 重复搜索操作
 n 
+
+#### 反向搜索操作
 N
 
 ### theme 
@@ -100,44 +137,36 @@ ctrl + g
 ### 三、 代码重构与编辑 (Refactoring & Code
 Actions)
 
-•  g .  或  g r a : 触发代码动作 (Code Actions) /
-快速修复 (Quick Fix)，非常适合修复 Rust
-编译报错！
-•  g h  或  shift-k : 查看悬浮文档提示 (Hover,
-editor)
-•  g B : 查看当前行的 Git Blame 悬浮历史提交信息
-( editor::BlameHover )
-•  g r n  或  c d : 重命名当前光标处的变量/符号
-(Rename)
-•  g c : 切换单行或选中行的注释 (normal.rs)
-•  g b : 切换块注释 (
-vim::PushToggleBlockComments )
+| 快捷键 | 绑定 Action | 详细说明 |
+| :--- | :--- | :--- |
+| `g .` 或 `g r a` | `editor::ToggleCodeActions` | 触发代码动作（Code Actions）或快速修复（Quick Fix），非常适合修复 Rust 编译报错 |
+| `g h` 或 `Shift-k` | `editor` | 查看悬浮文档提示（Hover） |
+| `g B` | `editor::BlameHover` | 查看当前行的 Git Blame 悬浮历史提交信息 |
+| `g r n` 或 `c d` | `editor::Rename` | 重命名当前光标处的变量或符号 |
+| `g c` | `normal.rs` | 切换当前行或选中行的单行注释 |
+| `g b` | `vim::PushToggleBlockComments` | 切换块注释 |
   
 ### 四、 Vim 环绕字符与文本对象 (Surround & Text
 Objects)
 
-Zed 原生实现了类似  vim-surround
-的操作，用于快速处理括号、引号：
+-  y s <motion> <char> : 
+添加环绕字符。例如：
+    -  y s w "       // (用双引号包围当前单词)
+    -  y s a ) [    // (用中括号包围包括小括号的整个表达式块)
 
-•  y s <motion> <char> : 添加环绕字符。例如：
-    •  y s w "  (用双引号包围当前单词)
-    •  y s a ) [
-    (用中括号包围包括小括号的整个表达式块)
-•  d s <char> : 删除环绕的某个字符。例如：
-    •  d s "  (删除双引号)
-•  c s <old_char> <new_char> :
+-  c s <old_char> <new_char> :
 更改环绕字符。例如：
-    •  c s " '  (把外侧的双引号改成单引号)
+    -  c s " '  (把外侧的双引号改成单引号)
 
+-  d s <char> : 
+删除环绕的某个字符。例如：
+    -  d s "  (删除双引号)
 
-此外，Zed 支持非常强悍的代码专用文本对象 (Text
-Objects)：
-
-  •  i a  /  a a : 选中参数 (Argument)
+  -  i a  /  a a : 选中参数 (Argument)
   块，对修改函数参数极其有用。
-  •  i f  /  a f : 选中整个函数/方法 (Method) 体。
-  •  i c  /  a c : 选中整个类 (Class) 定义。
-  •  i e  /  a e : 选中整个文件内容 (Entire file)。
+  -  i f  /  a f : 选中整个函数/方法 (Method) 体。
+  -  i c  /  a c : 选中整个类 (Class) 定义。
+  -  i e  /  a e : 选中整个文件内容 (Entire file)。
 
 
 ### 8. 项目面板文件树快捷键 (Project Panel - netrw 兼容模式)
@@ -156,7 +185,6 @@ Objects)：
 
 
 ### 6. Vim 环绕字符 (Surround) 与进阶文本对象
-Zed 原生支持强大的  vim-surround
 
 #### A. 环绕操作 (Surround)
 
@@ -200,15 +228,6 @@ Zed 原生支持强大的  vim-surround
       • 结果：回到无引号状态。
 
 
-  ### 1. 如何启用 Vim 模式
-  
-    在您的 Zed 配置文件  settings.json （可以通过命令面板  Ctrl-Shift-P  并搜索
-    open settings  打开）中添加：
-  
-      {
-        "vim_mode": true
-      }
-      ──────
 ### 2. LSP 代码导航快捷键 (Normal 模式)
   
 | 快捷键 | 绑定 Action | 详细说明 |
@@ -226,17 +245,16 @@ Zed 原生支持强大的  vim-surround
 
 ### 3. 代码重构与基础编辑快捷键 (Normal 模式)
 
-
-  | 快捷键 | 绑定 Action | 详细说明 |
-  | :--- | :--- | :--- |
-  | `g r n` | `editor::Rename` | 重命名当前符号，并自动更新所有引用该符号的文件 |
-  | `c d` | `editor::Rename` | 重命名当前符号（Zed 专属 Vim operator 快捷方式） |
-  | `g .` 或 `g r a` | `editor::ToggleCodeActions` | 打开 Code Actions 菜单（即 Quick Fix 快速修复补丁） |
-  | `g h` 或 `Shift-k` | `editor` | 显示当前符号的 LSP 悬浮文档说明（Hover） |
-  | `g B` | `editor::BlameHover` | 显示当前行的 Git Blame 详细悬浮提示（作者、提交哈希、时间） |
-  | `g c` | `vim` | 切换所选行或当前行的单行注释状态 |
-  | `g b` | `vim::PushToggleBlockComments` | 切换所选行或当前行的块注释（`/* ... */`）状态 |
-  | `z a` | `editor::ToggleFold` | 折叠或展开当前代码块 |
+| 快捷键 | 绑定 Action | 详细说明 |
+| :--- | :--- | :--- |
+| `g r n` | `editor::Rename` | 重命名当前符号，并自动更新所有引用该符号的文件 |
+| `c d` | `editor::Rename` | 重命名当前符号（Zed 专属 Vim operator 快捷方式） |
+| `g .` 或 `g r a` | `editor::ToggleCodeActions` | 打开 Code Actions 菜单（即 Quick Fix 快速修复补丁） |
+| `g h` 或 `Shift-k` | `editor` | 显示当前符号的 LSP 悬浮文档说明（Hover） |
+| `g B` | `editor::BlameHover` | 显示当前行的 Git Blame 详细悬浮提示（作者、提交哈希、时间） |
+| `g c` | `vim` | 切换所选行或当前行的单行注释状态 |
+| `g b` | `vim::PushToggleBlockComments` | 切换所选行或当前行的块注释（`/* ... */`）状态 |
+| `z a` | `editor::ToggleFold` | 折叠或展开当前代码块 |
 
 ### 4. 报错诊断与 Git 差异导航快捷键 (Normal 模式)
 
