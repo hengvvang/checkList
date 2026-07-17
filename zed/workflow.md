@@ -62,6 +62,9 @@ ctrl + w  L    //   `ctrl + w  shift + l`
 ### open in explorer
 ctrl + k r
 
+### language selector
+ctrl + k m
+
 ### code fold
 #### switch code fold status
 - ctrl + k ctrl + l
@@ -258,7 +261,6 @@ Objects)
 
 ### 4. 报错诊断与 Git 差异导航快捷键 (Normal 模式)
 
-
 | 快捷键 | 绑定 Action | 详细说明 |
 | :---: | :--- | :--- |
 | `] d` 或 `g ]` | `editor::GoToDiagnostic` | 跳转到文件中的下一个报错、警告或诊断位置 |
@@ -309,26 +311,6 @@ Zed 原生支持强大的  vim-surround
 | `e` | 整个文件 (Entire File) | 代表当前文件的全部内容 |
 | `q` | 任意引号 (Quotes) | 智能识别最近的单引号、双引号或反引号并将其作为范围 |
   
-#### 💡 实际使用示例 (以 Rust 代码为例)
-
-  // 初始代码状态
-  let value = format_name(first_name, last_name);
-
-1. 替换函数参数：光标移动到  first_name  上，按下  c i a  (Change Inner
-Argument)。
-    • 结果： first_name  被删除且进入插入模式：
-      let value = format_name(|, last_name);
-2. 给参数加双引号：退出到 Normal 模式，光标在  last_name  上，按下  y s i a "
-(Yank Surround Inner Argument with  " ).
-    • 结果：
-      let value = format_name(first_name, "last_name");
-3. 更改单双引号：光标在  last_name  内，按下  c s " '  (Change Surround  "  to
-' ).
-    • 结果：
-      let value = format_name(first_name, 'last_name');
-4. 删除外围引号：按下  d s '  (Delete Surround  ' ).
-    • 结果：回到无引号状态。
-
 
 ### 7. 插入模式下 Zed 智能快捷键 (Insert 模式)
 

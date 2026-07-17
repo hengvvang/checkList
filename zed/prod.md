@@ -1,21 +1,3 @@
-# Zed 快捷键与高产指南 (Vim & 默认快捷键)
-
----
-## 配置与启用
-
-在 Zed 中，您可以在全局用户设置（`settings.json`）中自由切换 **Vim 模式** 和 **默认模式**：
-
-```json
-{
-  "vim_mode": true
-}
-```
-
-* **Vim 模式**：通过 [crates/vim](file:///C:/Users/hengvvang/Desktop/zed/crates/vim) 模块提供熟悉的 Vim 指令集，并高度整合 Zed LSP 特性。
-* **默认模式**：采用类似于 VS Code / Sublime Text 的标准现代键位。
-
----
-
 ## 1. 工作空间面板与 Dock 控制
 
 Zed 的界面设计高度可定制。通过底栏、左栏和右栏的 Docks，您可以快速收起或展开不同的辅助面板。
