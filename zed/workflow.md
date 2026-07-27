@@ -1,7 +1,7 @@
-# quick input
+# zed quickshort
 
-## panel
-
+## dock
+ctrl + shift + y
 ctrl + b   / ctrl + alt + b  
 ctrl + j   / ctrl + alt  + j  
 
@@ -10,18 +10,13 @@ ctrl + j   / ctrl + alt  + j
 
 - project panel
   - pptf
-  - E
+  - E    //   S   //  H  // L
   - ctrl + shift + e
 
 - debug panel
   - dptf
   - D
   - ctrl + shift + d
-
-- terminal panel
-  - tptf
-  - T
-  - ctrl + `
 
 - git panel
   - gptf
@@ -37,6 +32,15 @@ ctrl + j   / ctrl + alt  + j
   - optf
   - ctrl + shfit + b
 
+- terminal panel
+  - tptf
+  - T
+  - ctrl + `             // 打开 term
+  - ctrl + shfit + `     // 新建
+  - ctrl + shift + space  // 编辑模式进入vim mode
+  
+  
+  
 ## windows
 
 ### new pane
@@ -46,6 +50,7 @@ ctrl + w  s
 
 ### close pane
 ctrl + w  q 
+space + w  + q
 
 ### focus pane
 ctrl + w  h  
@@ -65,6 +70,10 @@ ctrl + k r
 ### language selector
 ctrl + k m
 
+### markdown preview
+ctrl + k v
+ctrl + shift + v
+
 ### code fold
 #### switch code fold status
 - ctrl + k ctrl + l
@@ -73,7 +82,6 @@ ctrl + k m
 #### flod
 - ctrl + shift [
 - zc
-
 
 // 递归折叠
 - ctrl + k ctrl + [  
@@ -97,11 +105,11 @@ ctrl + k m
 
 
 ### search 
-#### 向后搜索
-/
-g /
-#### 向前搜索
-?
+- 向后搜索
+   /
+   g /
+- 向前搜索
+   ?
 
 #### 重复搜索操作
 n 
@@ -149,27 +157,28 @@ Actions)
 | `g c` | `normal.rs` | 切换当前行或选中行的单行注释 |
 | `g b` | `vim::PushToggleBlockComments` | 切换块注释 |
   
-### 四、 Vim 环绕字符与文本对象 (Surround & Text
-Objects)
-
+  
+### 添加环绕字符
 -  y s <motion> <char> : 
-添加环绕字符。例如：
-    -  y s w "       // (用双引号包围当前单词)
-    -  y s a ) [    // (用中括号包围包括小括号的整个表达式块)
-
+  - 例如：
+      -  y s w "       // (用双引号包围当前单词)
+      -  y s a ) [    // (用中括号包围包括小括号的整个表达式块)
+      
+### 更改环绕字符
 -  c s <old_char> <new_char> :
-更改环绕字符。例如：
-    -  c s " '  (把外侧的双引号改成单引号)
-
+  - 例如：
+      -  c s " '  (把外侧的双引号改成单引号)
+      
+### 删除环绕的某个字符
 -  d s <char> : 
-删除环绕的某个字符。例如：
-    -  d s "  (删除双引号)
+  - 例如：
+      -  d s "  (删除双引号)
 
-  -  i a  /  a a : 选中参数 (Argument)
-  块，对修改函数参数极其有用。
-  -  i f  /  a f : 选中整个函数/方法 (Method) 体。
-  -  i c  /  a c : 选中整个类 (Class) 定义。
-  -  i e  /  a e : 选中整个文件内容 (Entire file)。
+-  i a  /  a a : 选中参数 (Argument)
+块，对修改函数参数极其有用。
+-  i f  /  a f : 选中整个函数/方法 (Method) 体。
+-  i c  /  a c : 选中整个类 (Class) 定义。
+-  i e  /  a e : 选中整个文件内容 (Entire file)。
 
 
 ### 8. 项目面板文件树快捷键 (Project Panel - netrw 兼容模式)
@@ -187,15 +196,6 @@ Objects)
 | `escape` | `vim::ToggleProjectPanelFocus` | 移开焦点，将光标放回主编辑器中 |
 
 
-### 6. Vim 环绕字符 (Surround) 与进阶文本对象
-
-#### A. 环绕操作 (Surround)
-
-  | 快捷模式 | 对应 Action | 详细说明 |
-  | :--- | :--- | :--- |
-  | `y s <motion> <char>` | `vim::PushAddSurrounds` | 给指定运动范围内的内容添加环绕字符 |
-  | `d s <char>` | `vim::PushDeleteSurrounds` | 删除指定的环绕字符 |
-  | `c s <old_char> <new_char>` | `vim::PushChangeSurrounds` | 将指定的环绕字符修改为新字符 |
 
   #### B. 进阶文本对象 (Text Objects)
 
@@ -286,31 +286,6 @@ Objects)
   | `Ctrl-w c` 或 `Ctrl-w q` | `pane::CloseActiveItem` | 关闭当前激活的标签页/分屏 |
   | `g t` / `g Shift-t` | `vim::GoToTab` / `vim::GoToPreviousTab` | 切换到下一个/上一个标签页 (Tab) |
 
-### 6. Vim 环绕字符 (Surround) 与进阶文本对象
-
-Zed 原生支持强大的  vim-surround
-
-#### A. 环绕操作 (Surround)
-
-  | 快捷模式 | 对应 Action | 详细说明 |
-  | :--- | :--- | :--- |
-  | `y s <motion> <char>` | `vim::PushAddSurrounds` | 给指定运动范围内的内容添加环绕字符 |
-  | `d s <char>` | `vim::PushDeleteSurrounds` | 删除指定的环绕字符 |
-  | `c s <old_char> <new_char>` | `vim::PushChangeSurrounds` | 将指定的环绕字符修改为新字符 |
-
-#### B. 进阶文本对象 (Text Objects)
-  
-搭配  c  (Change),  d  (Delete),  y  (Yank),  v  (Visual)
-等算子使用，可操作极具编程语言语义的范围。
-    
-| 文本对象键 | 对应操作范围 | 说明 |
-| :---: | :--- | :--- |
-| `a` | 参数 (Argument) | 代表函数定义或调用中的某个参数（含逗号） |
-| `f` | 方法/函数 (Method/Function) | 代表整个函数的代码块范围 |
-| `c` | 类/结构体 (Class/Struct) | 代表整个类/结构体的代码块范围 |
-| `e` | 整个文件 (Entire File) | 代表当前文件的全部内容 |
-| `q` | 任意引号 (Quotes) | 智能识别最近的单引号、双引号或反引号并将其作为范围 |
-  
 
 ### 7. 插入模式下 Zed 智能快捷键 (Insert 模式)
 
@@ -321,21 +296,6 @@ Zed 原生支持强大的  vim-surround
 | `Ctrl-x Ctrl-o` | `editor::ShowCompletions` | 强制展开 LSP 的补全下拉菜单 |
 | `Ctrl-x Ctrl-l` | `editor::ToggleCodeActions` | 在插入模式下快速展开 Code Actions 菜单 |
     
-### 8. 项目面板文件树快捷键 (Project Panel - netrw 兼容模式)
-
-| 快捷键 | 绑定 Action | 详细说明 |
-|---|---|---|
-| `%` | `project_panel::NewFile` | 在当前目录下新建文件 |
-| `d` | `project_panel::NewDirectory` | 在当前目录下新建文件夹 |
-| `h` / `l` | `project_panel::CollapseSelectedEntry` / `project_panel::ExpandSelectedEntry` | 折叠/展开选中的文件夹目录 |
-| `v` | `project_panel::OpenSplitVertical` | 将选中文件在垂直分屏中打开 |
-| `o` | `project_panel::OpenSplitHorizontal` | 将选中文件在水平分屏中打开 |
-| `shift-d` | `project_panel::Delete` | 删除选中的文件/文件夹 |
-| `shift-r` | `project_panel::Rename` | 对选中的文件/文件夹进行重命名 |
-| `x` | `project_panel::RevealInFileManager` | 在系统资源管理器（Windows 的 File Explorer）中显示选中的文件 |
-| `escape` | `vim::ToggleProjectPanelFocus` | 移开焦点，将光标放回主编辑器中 |
-
-
 ### g xx
-g s
+g s   / gO 当前文件
 g S       //整个项目
