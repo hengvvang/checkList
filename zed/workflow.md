@@ -75,9 +75,6 @@ ctrl + k v
 ctrl + shift + v
 
 ### code fold
-#### switch code fold status
-- ctrl + k ctrl + l
-- za
 
 #### flod
 - ctrl + shift [
@@ -94,6 +91,10 @@ ctrl + shift + v
 // 递归展开
 - ctrl + k ctrl + ]  
 - zO      //   `z + shift + o`
+
+#### switch code fold status
+- ctrl + k ctrl + l
+- za
 
 #### flod all
 - ctrl + k ctrl + 0
@@ -131,21 +132,8 @@ alt + 1~9
 ### coding
 ctrl + g
 
-## 代码折叠 (Code Folding)
 
-| 折叠层级或动作 | Vim 模式快捷键 | 默认 Windows 快捷键 | 绑定 Action |
-| :--- | :--- | :--- | :--- |
-| **折叠当前光标所在代码块** | `z c` | `Ctrl-Shift-[` | `editor::Fold` |
-| **展开当前光标所在代码块** | `z o` | `Ctrl-Shift-]` | `editor::UnfoldLines` |
-| **一键折叠/展开当前光标所在块** | `z a` | `Ctrl-k Ctrl-l` | `editor::ToggleFold` |
-| **递归折叠当前块的所有子块** | `z Shift-c` | `Ctrl-k Ctrl-[` | `editor::FoldRecursive` |
-| **递归展开当前块的所有子块** | `z Shift-o` | `Ctrl-k Ctrl-]` | `editor::UnfoldRecursive` |
-| **折叠第 1~9 层缩进代码块** | 无 | `Ctrl-k Ctrl-1` ~ `9` | `editor::FoldAtLevel_1` ~ `9` |
-| **全部折叠** | `z Shift-m` | `Ctrl-k Ctrl-0` | `editor::FoldAll` |
-| **全部展开** | `z Shift-r` | `Ctrl-k Ctrl-j` | `editor::UnfoldAll` 
-
-
-### 三、 代码重构与编辑 (Refactoring & Code
+### 代码重构与编辑 (Refactoring & Code
 Actions)
 
 | 快捷键 | 绑定 Action | 详细说明 |
@@ -210,25 +198,6 @@ Actions)
    | `e` | 整个文件 (Entire File) | 代表当前文件的全部内容 |
    | `q` | 任意引号 (Quotes) | 智能识别最近的单引号、双引号或反引号并将其作为范围 |
 
-  #### 💡 实际使用示例 (以 Rust 代码为例)
-
-    // 初始代码状态
-    let value = format_name(first_name, last_name);
-
-  1. 替换函数参数：光标移动到  first_name  上，按下  c i a  (Change Inner
-  Argument)。
-      • 结果： first_name  被删除且进入插入模式：
-       let value = format_name(|, last_name);
-  2. 给参数加双引号：退出到 Normal 模式，光标在  last_name  上，按下  y s i a "
-  (Yank Surround Inner Argument with  " ).
-      • 结果：
-       let value = format_name(first_name, "last_name");
-  3. 更改单双引号：光标在  last_name  内，按下  c s " '  (Change Surround  "  to
-  ' ).
-      • 结果：
-       let value = format_name(first_name, 'last_name');
-  4. 删除外围引号：按下  d s '  (Delete Surround  ' ).
-      • 结果：回到无引号状态。
 
 
 ### 2. LSP 代码导航快捷键 (Normal 模式)
@@ -299,3 +268,82 @@ Actions)
 ### g xx
 g s   / gO 当前文件
 g S       //整个项目
+
+上/下一个方法
+[ m    
+] m
+
+选中
+[ x
+] x
+
+d o
+d O
+
+## 范围选区
+v / d / c / y
+### 函数参数
+ia
+aa
+
+### 函数
+if
+af
+
+### 类
+ic
+ac
+
+### 标签
+it
+at
+
+### 注释
+igc
+agc
+
+###
+vii
+vai
+
+via
+vaa
+
+## 多光标
+- 下一个重复项增加光标
+gl
+
+- 上一个重复项增加光标
+gL
+
+- visual mode
+  - 在选中内容行尾增加光标（真正的行尾，也包括行尾的空字符）
+    - gA
+  - 在选中内容行首第一个非空字符前面)增加光标
+  - gI
+- 跳过最后的光标
+  - g shift .
+- 往前跳  
+  - g shfit ,
+
+## 替换操作  vim-exchange 操作
+- 在一个单词上点击cxaw，在另一行上点击cxaw，两个单词互换
+- cxaw
+- 在一行上点击cxx，在另一行上点击cxx，两行互换
+  - cxx
+- 在某一行使用cxaf， 然后在某一行使用cxx，函数位置替换
+
+- cxip
+
+- cxc 取消交换标记
+
+跳转
+- w 下一个单词开头
+- ge 上一个单词结尾
+
+
+- b 单词结尾
+- e 单词开头
+包括后面的字符
+- B
+- E
