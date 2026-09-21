@@ -1,7 +1,7 @@
 # zed quickshort
 
 ## dock
-ctrl + shift + y
+ctrl + shift + y  
 ctrl + b   / ctrl + alt + b  
 ctrl + j   / ctrl + alt  + j  
 
@@ -38,10 +38,15 @@ ctrl + j   / ctrl + alt  + j
   - ctrl + `             // 打开 term
   - ctrl + shfit + `     // 新建
   - ctrl + shift + space  // 编辑模式进入vim mode
-  
-  
+  - ctrl + shfit + w
   
 ## windows
+
+<!--new window-->
+- ctrl + shift + n
+
+<!--close window-->
+- ctrl + shift + w
 
 ### new pane
 ctrl + w  n  
